@@ -1,28 +1,28 @@
-const countryPropertyName = "country";
+// const countryPropertyName = "country";
 
-const myDescription = {
-  age: 21,
-  pol: "M",
-  car: true,
-};
-myDescription.color = "green";
-myDescription.car = false;
-// myDescription["car"] = true;// или через квадратные
-myDescription[countryPropertyName] = "Ukraine";
+// const myDescription = {
+//   age: 21,
+//   pol: "M",
+//   car: true,
+// };
+// myDescription.color = "green";
+// myDescription.car = false;
+// // myDescription["car"] = true;// или через квадратные
+// myDescription[countryPropertyName] = "Ukraine";
 
-delete myDescription.color;
-// console.log(myDescription);
+// delete myDescription.color;
+// // console.log(myDescription);
 
-const car = {
-  vozpast: 20,
-  Characterictic: {
-    color: "red",
-    type: "sedan",
-  },
-  vid: function () {
-    console.log("vperet!!!");
-  },
-};
+// const car = {
+//   vozpast: 20,
+//   Characterictic: {
+//     color: "red",
+//     type: "sedan",
+//   },
+//   vid: function () {
+//     console.log("vperet!!!");
+//   },
+// };
 
 // ///////1 способ избежать мутации////////////////////////////////////
 
@@ -49,21 +49,21 @@ delete obj.name;
 
 //Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false.
 
-let schedule = {};
+// let schedule = {};
 
-// alert(isEmpty(schedule)); // true
+// // alert(isEmpty(schedule)); // true
 
-schedule.wake = "get up";
+// schedule.wake = "get up";
 
-// alert(isEmpty(schedule)); // false
+// // alert(isEmpty(schedule)); // false
 
-function isEmpty(schedule) {
-  for (let key in schedule) {
-    // если тело цикла начнет выполняться - значит в объекте есть свойства
-    return false;
-  }
-  return true;
-}
+// function isEmpty(schedule) {
+//   for (let key in schedule) {
+//     // если тело цикла начнет выполняться - значит в объекте есть свойства
+//     return false;
+//   }
+//   return true;
+// }
 
 //Напишите код для суммирования всех зарплат и сохраните результат в переменной sum. Должно получиться 390. Если объект salaries пуст, то результат должен быть 0.
 // const salaries = {
@@ -481,17 +481,590 @@ function isEmpty(schedule) {
 //   alert("Вы ввели число 2, а может и 3");
 // }
 
-const number = +prompt("Введите число между 0 и 3", "");
-switch (number) {
-  case 0:
-    alert("Вы ввели число 0");
-    break;
-  case 1:
-    alert("Вы ввели число 1");
-    break;
+// const number = +prompt("Введите число между 0 и 3", "");
+// switch (number) {
+//   case 0:
+//     alert("Вы ввели число 0");
+//     break;
+//   case 1:
+//     alert("Вы ввели число 1");
+//     break;
 
-  case 2:
-  case 3:
-    alert("Вы ввели число 2,а может и 3 ");
-    break;
-}
+//   case 2:
+//   case 3:
+//     alert("Вы ввели число 2,а может и 3 ");
+//     break;
+// }
+
+// Локальные переменные
+// Переменные, объявленные внутри функции, видны только внутри этой функции.
+
+// Например:
+
+// function showMessage() {
+//   let message = "Привет, я JavaScript!"; // локальная переменная
+
+//   alert( message );
+// }
+
+// showMessage(); // Привет, я JavaScript!
+
+// alert( message ); // <-- будет ошибка, т.к. переменная видна только внутри функции
+// Внешние переменные
+// У функции есть доступ к внешним переменным, например:
+
+// let userName = 'Вася';
+
+// function showMessage() {
+//   let message = 'Привет, ' + userName;
+//   alert(message);
+// }
+
+// showMessage(); // Привет, Вася
+// Функция обладает полным доступом к внешним переменным и может изменять их значение.
+
+// Например:
+
+// let userName = 'Вася';
+
+// function showMessage() {
+//   userName = "Петя"; // (1) изменяем значение внешней переменной
+
+//   let message = 'Привет, ' + userName;
+//   alert(message);
+// }
+
+// alert( userName ); // Вася перед вызовом функции
+
+// showMessage();
+
+// alert( userName ); // Петя, значение внешней переменной было изменено функцией
+// Внешняя переменная используется, только если внутри функции нет такой локальной.
+
+// Если одноимённая переменная объявляется внутри функции, тогда она перекрывает внешнюю. Например, в коде ниже функция использует локальную переменную userName. Внешняя будет проигнорирована:
+
+// let userName = 'Вася';
+
+// function showMessage() {
+//   let userName = "Петя"; // объявляем локальную переменную
+
+//   let message = 'Привет, ' + userName; // Петя
+//   alert(message);
+// }
+
+// // функция создаст и будет использовать свою собственную локальную переменную userName
+// showMessage();
+
+// alert( userName ); // Вася, не изменилась, функция не трогала внешнюю переменную
+// function showMessage(from, text = "текст не добавлен") {
+//   alert(from + ": " + text);
+// }
+
+// showMessage("Аня");
+
+// Следующая функция возвращает true, если параметр age больше 18.
+
+// В ином случае она задаёт вопрос confirm и возвращает его результат.
+
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     return confirm('Родители разрешили?');
+//   }
+// }
+// Перепишите функцию, чтобы она делала то же самое, но без if, в одну строку.
+
+// Сделайте два варианта функции checkAge:
+
+// Используя оператор ?
+// Используя оператор ||
+
+// function checkAge(age) {
+//   return age > 18 ? true : confirm("Родители разрешили?");
+// }
+// function checkAge(age) {
+//   return age > 18 || confirm("Родители разрешили?");
+// }
+
+// function cuclMin(a, b) {
+//   return a >= b ? b : a;
+// }
+
+// function cuclMinn(a, b) {
+//   if (a >= b) {
+//     return b;
+//   } else {
+//     return a;
+//   }
+// }
+// let x = prompt("Введи число", "0");
+// let n = prompt("Введи степень", "0");
+// function pow(x, n) {
+
+//     if (n > 0) {
+
+//   }else{
+//     alert("IDIOT")
+//   }
+// }
+// function pow(x, n) {
+//   let result = x;
+
+//   for (let i = 1; i < n; i++) {
+//     result *= x;
+//   }
+
+//   return result;
+// }
+
+// let x = prompt("x?", "");
+// let n = prompt("n?", "");
+
+// if (n < 1) {
+//   alert(`Степень ${n} не поддерживается, используйте натуральное число`);
+// } else {
+//   alert(pow(x, n));
+// }
+
+// let age = prompt("Сколько Вам лет?", 18);
+
+// let welcome = (age < 18) ?
+//   () => alert('Привет!') :
+//   () => alert("Здравствуйте!");
+
+// welcome();
+
+// function ask(question, yes, no) {
+//     if (confirm(question)) yes()
+//     else no();
+//   }
+
+//   ask(
+//     "Вы согласны?",
+//     function() { alert("Вы согласились."); },
+//     function() { alert("Вы отменили выполнение."); }
+//   );
+
+// let welcome = (age < 18) ?
+//   () => alert('Привет!') :
+//   () => alert("Здравствуйте!");
+
+// welcome();
+
+//  function ask(question, yes, no) {
+//     if (confirm(question)) yes()
+//      else no();
+//   }
+
+//    ask(
+//      "Вы согласны?",
+//       () => alert("Вы согласились."),
+//   () => alert("Вы отменили выполнение.")
+//    );
+
+// let ob = {};
+// obj.name = "John";
+// obj.surname = "Smith";
+// obj.name = "Pete";
+// delete obj.name;
+
+// // function isEmpty(objttt) {
+// //   if (objttt === undefined) {
+// //     alert("true");
+// //   } else {
+// //     alert("false");
+// //   }
+// // }
+// function isEmpty(obj) {
+//   for (let key in obj) {
+//     // если тело цикла начнет выполняться - значит в объекте есть свойства
+//     return false;
+//   }
+//   return true;
+// }
+// let salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130,
+// };
+
+// result = 0;
+// function sumSalaries() {
+//   for (let key in salaries) {
+//     result = salaries[key] + result;
+//   }
+//   alert(result);
+// }
+
+// sumSalaries(salaries);
+
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu",
+// };
+
+// function multiplyNumeric(menu) {
+//   for (let key in menu) {
+//     if (typeof menu[key] == "number") {
+//       menu[key] = menu[key] * 2;
+//     }
+//   }
+// }
+
+// let user = {
+//   name: "John",
+//   age: 30,
+// };
+
+// let clone = {};
+
+// for (let key in user) {
+//   clone[key] = user[key];
+// }
+
+// Значение this – это объект «перед точкой», который используется для вызова метода.
+
+// Например:
+
+// let user = {
+//   name: "John",
+//   age: 30,
+
+//   sayHi() {
+//     // "this" - это "текущий объект".
+//     alert(this.name);
+//   },
+// };
+
+// user.sayHi(); // John
+// Здесь во время выполнения кода user.sayHi() значением this будет являться user (ссылка на объект user).
+
+// Создайте объект calculator (калькулятор) с тремя методами:
+
+// read() (читать) запрашивает два значения и сохраняет их как свойства объекта.
+// sum() (суммировать) возвращает сумму сохранённых значений.
+// mul() (умножить) перемножает сохранённые значения и возвращает результат.
+// let calculator = {
+//   // ... ваш код ...
+// };
+
+// let calculator = {
+//   sum() {
+//     return this.a + this.b;
+//   },
+
+//   mul() {
+//     return this.a * this.b;
+//   },
+
+//   read() {
+//     this.a = +prompt("Введите значение", 0);
+//     this.b = +prompt("Введите значение", 0);
+//   },
+// };
+
+// calculator.read();
+// alert(calculator.sum());
+// alert(calculator.mul());
+
+// У нас есть объект ladder (лестница), который позволяет подниматься и спускаться:
+
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//   },
+//   down() {
+//     this.step--;
+//   },
+//   showStep: function () {
+//     // показывает текущую ступеньку
+//     alert(this.step);
+//   },
+// };
+// Теперь, если нам нужно выполнить несколько последовательных вызовов, мы можем сделать это так:
+
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+// ladder.down();
+// ladder.showStep(); // 0
+// Измените код методов up, down и showStep таким образом, чтобы их вызов можно было сделать по цепочке, например так:
+
+// ladder.up().up().down().showStep().down().showStep(); // показывает 1 затем 0
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//     return this;
+//   },
+//   down() {
+//     this.step--;
+//     return this;
+//   },
+//   showStep() {
+//     alert(this.step);
+//     return this;
+//   },
+// };
+
+// ladder.up().up().down().showStep().down().showStep(); // показывает 1 затем 0
+// function User(name, isAdmin) {
+//   this.name = name;
+//   this.isAdmin = isAdmin;
+// }
+
+// let user = new User("Jack", true);
+
+// alert(user.name); // Jack
+// alert(user.isAdmin); // false
+
+// Возможно ли создать функции A и B, чтобы new A() == new B()?
+
+// function A() { ... }
+// function B() { ... }
+
+// let a = new A;
+// let b = new B;
+
+// alert( a == b ); // true
+
+// Да, возможно.
+
+// Если функция возвращает объект, то new вернёт его вместо this.
+
+// Таким образом, они могут, к примеру, возвращать один и тот же внешне определённый объект obj:
+
+// let obj = {};
+
+// function A() { return obj; }
+// function B() { return obj; }
+
+// alert( new A() == new B() ); // true
+
+// function Calculator() {
+//   this.read = function () {
+//     this.readA = +prompt("введите число", "0");
+//     this.readB = +prompt("введите число", "0");
+//   };
+//   this.sum = function () {
+//     return this.readA + this.readB;
+//   };
+//   this.mul = function () {
+//     return this.readA * this.readB;
+//   };
+// }
+// let calculator = new Calculator();
+// calculator.read();
+
+// alert("Sum=" + calculator.sum());
+// alert("Mul=" + calculator.mul());
+
+// function Accumulator(startingValue) {
+//   this.value = startingValue;
+
+//   this.read = function () {
+//     this.a = +prompt("нового число", "0");
+//     this.value = this.a + this.value;
+//   };
+// }
+// let accumulator = new Accumulator(1);
+// accumulator.read(); // прибавляет введённое пользователем значение к текущему значению
+// accumulator.read(); // прибавляет введённое пользователем значение к текущему значению
+
+// alert(accumulator.value); // выведет сумму этих значений
+
+// let value1 = +prompt("Введите 1 число", "0");
+// let value2 = +prompt("Введите 2 число", "0");
+// let sum = value1 + value2;
+// alert(sum);
+// Создайте функцию readNumber, которая будет запрашивать ввод числового значения до тех пор, пока посетитель его не введёт.
+
+// Функция должна возвращать числовое значение.
+
+// Также надо разрешить пользователю остановить процесс ввода, отправив пустую строку или нажав «Отмена». В этом случае функция должна вернуть null.
+// function readNumber() {
+//     let num;
+
+//     do {
+//       num = prompt("Введите число", 0);
+//     } while ( !isFinite(num) );
+
+//     if (num === null || num === '') return null;
+
+//     return +num;
+//   }
+
+//   alert(`Число: ${readNumber()}`);
+
+// function random(min, max) {
+//   return min + Math.random() * (max - min);
+// }
+
+// alert(random(1, 5));
+// alert(random(1, 5));
+// alert(random(1, 5));
+
+// Напишите функцию randomInteger(min, max), которая генерирует случайное целое (integer) число от min до max (включительно).
+
+// Любое число из интервала min..max должно появляться с одинаковой вероятностью.
+
+// Пример работы функции:
+
+// alert( randomInteger(1, 5) ); // 1
+// alert( randomInteger(1, 5) ); // 3
+// alert( randomInteger(1, 5) ); // 5
+// function randomInteger(min, max) {
+//   // получить случайное число от (min-0.5) до (max+0.5)
+//   let rand = min - 0.5 + Math.random() * (max - min + 1);
+//   return Math.round(rand);
+// }
+
+// alert(randomInteger(1, 3));
+
+// let str = "Любое число из интервала Пример инработы функции";
+
+// alert(str.indexOf("ин", 16));
+// Чтобы найти все вхождения подстроки, нужно запустить indexOf в цикле. Каждый раз, получив очередную позицию, начинаем новый поиск со следующей:
+
+// let str = "Ослик Иа-Иа посмотрел на виадук";
+
+// let target = "Иа"; // цель поиска
+
+// let pos = 0;
+// while (true) {
+//   let foundPos = str.indexOf(target, pos);
+//   if (foundPos == -1) break;
+
+//   alert(`Найдено тут: ${foundPos}`);
+//   pos = foundPos + 1; // продолжаем со следующей позиции
+// }
+
+// let str = "Widget with id";
+
+// if (str.indexOf("Widget") != -1) {
+//   alert("Совпадение есть"); // теперь работает
+// }
+
+// let str = '';
+
+// for (let i = 65; i <= 220; i++) {
+//   str = str + String.fromCodePoint(i);
+// }
+// alert( str );
+
+// Напишите функцию ucFirst(str), возвращающую строку str с заглавным первым символом. Например:
+
+// ucFirst("вася") == "Вася";
+
+// Мы не можем просто заменить первый символ, так как строки в JavaScript неизменяемы.
+
+// Но можно пересоздать строку на основе существующей, с заглавным первым символом:
+
+////////////////////////////////////////////
+// let str = "dima";
+// function ucFirst(str) {
+//   if (!str) return str;
+
+//   return str[0].toUpperCase() + str.slice(1);
+// }
+
+// alert(ucFirst("дима"));
+
+// Напишите функцию checkSpam(str), возвращающую true, если str содержит 'viagra' или 'XXX', а иначе false.
+
+// Функция должна быть нечувствительна к регистру:
+
+// checkSpam('buy ViAgRA now') == true
+// checkSpam('free xxxxx') == true
+// checkSpam("innocent rabbit") == false
+// let str = prompt("Введите viagra или XXX", "viagra или XXX");
+
+// function checkSpam(str) {
+//   let lowerStr = str.toLowerCase();
+//   if (lowerStr.includes("viagra") || lowerStr.includes("XXX")) {
+//     alert(true);
+//   } else alert(false);
+// }
+// checkSpam(str);
+
+// let str = "Вот, что мне хотелось бы сказать на эту тему:";
+// let maxlength = 20;
+// function truncate(str, maxlength) {
+//   if (str.lenght > maxlength) {
+//     str.slice(0, maxlength - 1) + "...";
+//   } else {
+//     alert(str);
+//   }
+// }
+
+// alert(truncate(str, maxlength));
+
+// function truncate(str, maxlength) {
+//   return str.length > maxlength ? str.slice(0, maxlength - 1) + "…" : str;
+// }
+
+// alert(truncate(str, maxlength));
+
+///////////////////////////////////////
+///////////////////////////////////////
+///////////////////////////////////////
+// Есть стоимость в виде строки "$120". То есть сначала идёт знак валюты, а затем – число.
+
+// Создайте функцию extractCurrencyValue(str), которая будет из такой строки выделять числовое значение и возвращать его.
+
+// Например:
+
+// alert( extractCurrencyValue('$120') === 120 ); // true
+
+// let value = "$120";
+
+// function extractCurrencyValue(value) {
+//   return +value.slice(1, value.lenght);
+// }
+// alert(extractCurrencyValue(value));
+// alert(extractCurrencyValue("$120") === 120);
+
+// let styles = ["Джаз", "Блюз"];
+
+// styles.push("Рок-н-ролл");
+// // styles[1] = "Классика"; or
+// styles[Math.floor((styles.length - 1) / 2)] = "Классика";
+// styles.shift();
+// styles.unshift("Рэп", "Регги");
+// alert(styles);
+
+// Каков результат? Почему?
+
+// let arr = ["a", "b"];
+
+// arr.push(function() {
+//   alert( this );
+// });
+
+// arr[2](); // ?
+// arr[2](); // a,b,function(){...}
+
+// Напишите функцию sumInput(), которая:
+
+// Просит пользователя ввести значения, используя prompt и сохраняет их в массив.
+// Заканчивает запрашивать значения, когда пользователь введёт не числовое значение, пустую строку или нажмёт «Отмена».
+// Подсчитывает и возвращает сумму элементов массива.
+// P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
+// function sumInput() {
+//   let arr = [];
+//   while (true) {
+//     let value = prompt("введите значение", "0");
+//     if (value == "" || value === null || !isFinite(value)) break;
+//     arr.push(+value);
+//   }
+//   sum = 0;
+//   for (let num of arr) {
+//     sum += num;
+//   }
+//   return sum;
+// }
+// alert(sumInput());
